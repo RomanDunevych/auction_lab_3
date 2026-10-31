@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} — Онлайн-аукціон</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Онлайн-аукціон</a>
+      <nav class="main-nav">
+        <a href="/lots" class="{{ 'active' if currentPath.startsWith('/lots') }}">Лоти</a>
+        <a href="/categories" class="{{ 'active' if currentPath.startsWith('/categories') }}">Категорії</a>
+        <a href="/statuses" class="{{ 'active' if currentPath.startsWith('/statuses') }}">Статуси</a>
+        <a href="/users" class="{{ 'active' if currentPath.startsWith('/users') }}">Користувачі</a>
+        <a href="/bids" class="{{ 'active' if currentPath.startsWith('/bids') }}">Ставки</a>
+        <a href="/history" class="{{ 'active' if currentPath.startsWith('/history') }}">Історія</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% if notice %}<div class="alert alert-ok">{{ notice }}</div>{% endif %}
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Лабораторна робота №3 · Форми та серверна валідація · Express.js + Sequelize + Nunjucks</div>
+  </footer>
+</body>
+</html>
